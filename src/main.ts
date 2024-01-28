@@ -8,7 +8,10 @@ import 'vfonts/FiraCode.css'
 import App from './App.vue'
 // 路由
 import router from "./router";
+// pinia
+import pinia from './store/index.ts'
 
 const app = createApp(App);
 app.use(router)
+app.use(pinia)
 app.mount('#app')

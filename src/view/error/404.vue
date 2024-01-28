@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div>
     <img class="img" src="@/assets/error/404.svg" alt="404" />
@@ -8,9 +6,21 @@
     <span>对不起，你访问的页面不存在</span>
   </div>
   <div class="btn">
-    <n-button type="primary">返回主页</n-button>
+    <n-button color="#002329" type="primary" @click="goBackHome">
+      返回主页
+    </n-button>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const goBackHome = () => {
+  router.push({ name: 'basic' });
+};
+</script>
 
 <style scoped>
 .img {

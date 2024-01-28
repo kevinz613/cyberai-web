@@ -2,7 +2,7 @@
 
 <template>
   <div class="main main-scroll">
-    <router-view v-slot="{ Component }"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 

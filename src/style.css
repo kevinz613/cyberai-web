@@ -31,3 +31,13 @@ html,body {
   background: #fff;
   /*padding: 1rem;*/
 }
+
+/*灰色模式*/
+.setting-gray{
+  filter: grayscale(100%);
+}
+
+/*色弱模式*/
+.setting-weak{
+  filter: invert(15%);
+}
