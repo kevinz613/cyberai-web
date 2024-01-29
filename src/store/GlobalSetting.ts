@@ -20,24 +20,22 @@ export const useSettingStore = defineStore('setting',{
   actions:{
     /*更改collapse*/
     switchCollapse(isCollapsed: boolean){
-      //console.log('collapsed:'+ isCollapsed)
       this.collapsed = isCollapsed
-      //console.log("修改后:"+this.collapsed)
     },
     /*切换主题模式*/
-    switchThemes(theme: string){
-      console.log('theme:'+theme)
-      this.globalSetting.themeModel = theme
+    switchToDark(){
+      this.globalSetting.themeModel = "dark"
+    },
+    switchToLight(){
+      this.globalSetting.themeModel = "light"
     },
     /*切换灰色模式*/
     switchGray(isGray: boolean){
-      console.log('gray:'+isGray)
       htmlElementClass(isGray,"setting-gray")
       this.globalSetting.gray = isGray
     },
     /*切换色弱模式*/
     switchWeak(isWeak: boolean){
-      console.log('weak:'+isWeak)
       htmlElementClass(isWeak,"setting-weak")
       this.globalSetting.gray = isWeak
     }

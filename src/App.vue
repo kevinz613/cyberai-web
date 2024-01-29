@@ -1,5 +1,5 @@
 <template>
-  <n-config-provider>
+  <n-config-provider :theme="theme === 'light' ? lightTheme : darkTheme">
     <n-notification-provider>
       <n-dialog-provider>
         <n-message-provider>
@@ -10,10 +10,10 @@
   </n-config-provider>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {},
-});
+<script lang="ts" setup>
+import { useSettingStore } from '@/store/GlobalSetting.ts';
+import { computed } from 'vue';
+import { darkTheme, lightTheme } from 'naive-ui';
+const settingStore = useSettingStore();
+const theme = computed(() => settingStore.globalSetting.themeModel);
 </script>

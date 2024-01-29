@@ -4,10 +4,10 @@
     show-trigger
     collapse-mode="width"
     :collapsed-width="64"
-    width="200"
+    width="150"
     :native-scrollbar="false"
     :collapsed="{ collapsed }.collapsed"
-    @updateCollapsed="switchCollapse"
+    @update-collapsed="switchCollapse"
   >
     <SiderMenu />
   </n-layout-sider>

@@ -2,7 +2,8 @@
   <n-menu
     :collapsed="{ collapsed }.collapsed"
     :collapsed-width="64"
-    :collapsed-icon-size="22"
+    :collapsed-icon-size="28"
+    :icon-size="26"
     :options="menus"
     key-field="key"
     label-field="label"
