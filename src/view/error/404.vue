@@ -6,9 +6,7 @@
     <span>对不起，你访问的页面不存在</span>
   </div>
   <div class="btn">
-    <n-button color="#002329" type="primary" @click="goBackHome">
-      返回主页
-    </n-button>
+    <n-button color="#002329" type="primary" @click="goBackHome"> 返回主页 </n-button>
   </div>
 </template>
 

@@ -1,13 +1,5 @@
 <template>
-  <n-menu
-    :collapsed="{ collapsed }.collapsed"
-    :collapsed-width="64"
-    :collapsed-icon-size="28"
-    :icon-size="26"
-    :options="menus"
-    key-field="key"
-    label-field="label"
-  />
+  <n-menu :collapsed="{ collapsed }.collapsed" :collapsed-width="64" :collapsed-icon-size="28" :icon-size="26" :options="menus" key-field="key" label-field="label" />
 </template>
 
 <script lang="ts" setup>

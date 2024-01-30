@@ -1,5 +1,5 @@
-import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
-import { getToken, token_prefix } from "./token";
+import axios, {AxiosError, AxiosResponse, InternalAxiosRequestConfig} from "axios";
+import {getToken, token_key, token_prefix} from "./token";
 
 const requests = axios.create({
   baseURL: "/api",
@@ -14,8 +14,8 @@ const requests = axios.create({
 requests.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     // 请求带token
-    if (getToken()) {
-      config.headers["sa-token"] = token_prefix + getToken();
+    if (getToken() != null) {
+      config.headers[token_key] = token_prefix + getToken();
     }
     return config;
   },
@@ -27,17 +27,12 @@ requests.interceptors.request.use(
 // 配置响应拦截器
 requests.interceptors.response.use(
   (response: AxiosResponse) => {
-    switch (response.data.code) {
-      case 400:
-        window.$message?.error(response.data.msg);
-        break;
-      case 500:
-        window.$message?.error(response.data.msg);
-        break;
+    if (response.data.code != '0000'){
+      window.$message?.error(response.data.msg);
     }
     return response;
   }, (error: AxiosError) => {
-    let { message } = error;
+    let {message} = error;
     if (message == "Network Error") {
       message = "后端接口连接异常";
     } else if (message.includes("timeout")) {
@@ -45,7 +40,7 @@ requests.interceptors.response.use(
     } else if (message.includes("Request failed with status code")) {
       message = "系统接口" + message.substring(message.length - 3) + "异常";
     }
-    window.$message?.error(message, { duration: 5000 });
+    window.$message?.error(message, {duration: 5000});
     return Promise.reject(error);
   }
 );

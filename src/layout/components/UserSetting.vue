@@ -26,7 +26,7 @@
       </n-el>
       <n-el class="header-icon hover-color">
         <n-dropdown trigger="click" :options="options" @select="handleLogout">
-          小庄
+          {{ name }}
         </n-dropdown>
       </n-el>
     </n-space>
@@ -41,14 +41,22 @@ import {
   SunnyOutline,
   MoonOutline,
 } from '@vicons/ionicons5';
+
 import { useSettingStore } from '@/store/GlobalSetting.ts';
 import { computed, h ,ref} from 'vue';
-import {NAvatar, NText} from "naive-ui";
+import {NAvatar, NText, useMessage} from "naive-ui";
 import router from "@/router";
+import useUserStore from "@/store/user";
+import {removeToken} from "@/utils/token.ts";
 
+const message = useMessage();
 //获取setting store
 const settingStore = useSettingStore();
 const themeModel = computed(() => settingStore.globalSetting.themeModel);
+const userStore = useUserStore();
+//用户信息
+const name = computed(() => userStore.name);
+const avatar = computed(() => userStore.avatar);
 
 function renderCustomHeader () {
   return h(
@@ -60,10 +68,10 @@ function renderCustomHeader () {
       h(NAvatar, {
         round: true,
         style: 'margin-right: 12px;',
-        src: 'https://07akioni.oss-cn-beijing.aliyuncs.com/demo1.JPG'
+        src: avatar.value
       }),
       h('div', null, [
-        h('div', null, [h(NText, { depth: 2 }, { default: () => '小庄' })]),
+        h('div', null, [h(NText, { depth: 2 }, { default: () => name.value })]),
         h('div', { style: 'font-size: 12px;' }, [
           h(
             NText,
@@ -96,8 +104,15 @@ const options = ref([
 //处理退出登录
 const handleLogout = (key: string | number) => {
   if (key === 'logout'){
-    //TODO 清除缓存
-    router.push('/login')
+    userStore.logout().then(()=>{
+      removeToken();
+      //重定向
+      router.push('/login')
+    }).catch(()=>{
+      setTimeout(()=>{
+        message.info('退出失败');
+      },3100)
+    });
   }
 }
 /*切换日间主题*/

@@ -1,24 +1,20 @@
-import Cookies from "js-cookie";
-
-const TokenKey: string = "Token";
-
-// 我网站的链接是www.ttkwsd.top，去前面的www
-// const domain: string = ".ttkwsd.top";
+//token key
+ export const token_key: string = "access-token";
 
 // token前缀
 export let token_prefix = "Bearer ";
 
+//获得token
 export function getToken() {
-  return Cookies.get(TokenKey);
+  return localStorage.getItem(token_key);
 }
 
-// 本地运行记得删除domain
+//设置token
 export function setToken(token: string) {
-  // return Cookies.set(TokenKey, token, { domain: domain });
-  return Cookies.set(TokenKey, token);
+  return localStorage.setItem(token_key,token)
 }
 
+//去除token
 export function removeToken() {
-  // return Cookies.remove(TokenKey, { domain: domain });
-  return Cookies.remove(TokenKey);
+  return localStorage.removeItem(token_key);
 }
