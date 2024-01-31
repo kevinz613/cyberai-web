@@ -5,6 +5,8 @@ import home from '@/view/home/index.vue';
 import completions from '@/view/completions/index.vue';
 import images from '@/view/images/index.vue';
 import shop from '@/view/shop/index.vue';
+import lottery from '@/view/lottery/index.vue';
+import gallery from '@/view/gallery/index.vue';
 import NProgress from 'nprogress'; // 导入 nprogress模块
 import 'nprogress/nprogress.css';
 import {getToken} from "@/utils/token.ts"; // 导入样式
@@ -30,8 +32,16 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         component: images,
       },
       {
+        path: "/gallery", name: "gallery", meta: {title: "画廊", requiresAuth: true},
+        component: gallery,
+      },
+      {
         path: "/shop", name: "shop", meta: {title: "商城", requiresAuth: true},
         component: shop,
+      },
+      {
+        path: "/lottery", name: "lottery", meta: {title: "抽奖", requiresAuth: true},
+        component: lottery,
       },
     ],
   },
@@ -76,7 +86,8 @@ router.beforeEach(async (to, from, next) => {
   } else {
     // 未登录
     if (to.meta.requiresAuth){
-      await router.push('/login');
+      //await router.push('/login');
+      next();
     }else {
       next();
     }

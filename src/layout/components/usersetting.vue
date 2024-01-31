@@ -24,6 +24,9 @@
       >
         <n-icon size="20"><MoonOutline /></n-icon>
       </n-el>
+      <n-el class="header-icon hover-color" v-if="name ==='' " @click="toLogin">
+        登录
+      </n-el>
       <n-el class="header-icon hover-color">
         <n-dropdown trigger="click" :options="options" @select="handleLogout">
           {{ name }}
@@ -100,6 +103,10 @@ const options = ref([
       key: 'logout'
     },
   ])
+
+const toLogin = ()=>{
+  router.push('/login')
+}
 
 //处理退出登录
 const handleLogout = (key: string | number) => {
