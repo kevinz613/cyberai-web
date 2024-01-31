@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import SiderMenu from '@/layout/components/SiderMenu.vue';
+import SiderMenu from '@/layout/components/sidermenu.vue';
 import { useSettingStore } from '@/store/GlobalSetting.ts';
 import { computed } from 'vue';
 

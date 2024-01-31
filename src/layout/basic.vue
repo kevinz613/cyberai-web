@@ -18,10 +18,10 @@
 </template>
 
 <script setup lang="ts">
-import Sider from '@/layout/components/Sider.vue';
-import Logo from '@/layout/components/Logo.vue';
-import Main from '@/layout/components/Main.vue';
-import UserSetting from '@/layout/components/UserSetting.vue';
+import Sider from '@/layout/components/sider.vue';
+import Logo from '@/layout/components/logo.vue';
+import Main from '@/layout/components/main.vue';
+import UserSetting from '@/layout/components/usersetting.vue';
 </script>
 <style scoped></style>
 

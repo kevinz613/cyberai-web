@@ -1,9 +1,7 @@
 import {MenuOption } from "naive-ui";
 import {h} from 'vue'
-import { ChatbubblesOutline, HomeOutline, ImageOutline} from "@vicons/ionicons5";
-import {renderIcon} from "@/config/Icon.ts";
+import {renderIcon, renderMyIcon} from "@/config/Icon.ts";
 import {BrandGithub} from "@vicons/tabler";
-import {BuildingShop16Regular} from "@vicons/fluent";
 import {RouterLink} from "vue-router";
 
 export const menuOptions: MenuOption[] = [
@@ -18,7 +16,7 @@ export const menuOptions: MenuOption[] = [
       {default:()=>'主页'}
     ),
     key: 'cyber-home',
-    icon: renderIcon(HomeOutline)
+    icon: renderMyIcon('src/assets/icon/home.svg')
   },
   {
     label: ()=>h(
@@ -31,7 +29,7 @@ export const menuOptions: MenuOption[] = [
       {default:()=>'对话'}
     ),
     key: 'cyber-completions',
-    icon: renderIcon(ChatbubblesOutline),
+    icon: renderMyIcon('src/assets/icon/completions.svg'),
   },
   {
     label: ()=>h(
@@ -44,7 +42,20 @@ export const menuOptions: MenuOption[] = [
       {default:()=>'绘画'}
     ),
     key: 'cyber-images',
-    icon: renderIcon(ImageOutline)
+    icon: renderMyIcon('src/assets/icon/image.svg')
+  },
+  {
+    label: ()=>h(
+      RouterLink,
+      {
+        to:{
+          name:'gallery'
+        }
+      },
+      {default:()=>'画廊'}
+    ),
+    key: 'cyber-gallery',
+    icon: renderMyIcon('src/assets/icon/gallery.svg')
   },
   {
     label: ()=>h(
@@ -57,7 +68,20 @@ export const menuOptions: MenuOption[] = [
       {default:()=>'商城'}
     ),
     key: 'cyber-shop',
-    icon: renderIcon(BuildingShop16Regular),
+    icon: renderMyIcon('src/assets/icon/shop.svg'),
+  },
+  {
+    label: ()=>h(
+      RouterLink,
+      {
+        to:{
+          name:'lottery'
+        }
+      },
+      {default:()=>'抽奖'}
+    ),
+    key: 'cyber-lottery',
+    icon: renderMyIcon('src/assets/icon/lottery3.svg'),
   },
   {
     label: () =>

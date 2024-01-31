@@ -11,8 +11,19 @@ const renderIcon = (icon: Component) => {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
 
+/*渲染svg*/
+const renderMyIcon = (src: string) =>{
+  return ()=> h(
+    "img",
+    { src: src, width: 26, height: 26 },
+    { default: () => null }
+  )
+
+}
+
 export {
   renderColorIcon,
-  renderIcon
+  renderIcon,
+  renderMyIcon
 }
 
