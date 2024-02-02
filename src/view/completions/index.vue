@@ -4,7 +4,7 @@
       <sider class="sider"/>
       <n-layout style="height: 100%" class="content">
         <n-el tag="div" class="layout-main">
-          <router-view/>
+          <Main/>
         </n-el>
       </n-layout>
     </n-layout>
@@ -17,6 +17,7 @@
 <script setup lang="ts">
 
 import Sider from "@/view/completions/component/sider.vue";
+import Main from "@/view/completions/component/main.vue";
 </script>
 
 <style scoped lang="less">
