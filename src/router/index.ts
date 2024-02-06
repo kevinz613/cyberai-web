@@ -86,7 +86,7 @@ router.beforeEach(async (to, from, next) => {
   } else {
     // 未登录
     if (to.meta.requiresAuth){
-      //await router.push('/login');
+      await router.push('/login');
       next();
     }else {
       next();

@@ -1,11 +1,5 @@
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
+<template>画廊</template>
 
-<template>
-画廊
-</template>
-
-<style scoped>
-
-</style>
+<style scoped></style>

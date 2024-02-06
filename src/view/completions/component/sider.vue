@@ -18,13 +18,13 @@
     </div>
     <n-divider style="margin-top: 10px;margin-bottom: 10px"/>
     <div class="history-list">
-      <n-list bordered clickable hoverable class="history-list-item" v-for="item in histories" style="margin-top: 5px" :class="[item.id==selectChatId ? 'selected' : 'default']" @click="switchSelectId(item.id)">
-        <n-list-item key="{{item.id}}}">
+      <n-list bordered clickable hoverable class="history-list-item" v-for="item in sessions" style="margin-top: 5px" :class="[item.id==selectChatId ? 'selected' : 'default']" @click="switchSelectId(item.id)">
+        <n-list-item key="{{item.history.id}}}">
           <div class="title">
-            <span>{{item.name}}</span>
+            <span>{{item.history.title}}</span>
           </div>
           <div class="time">
-            <span>{{item.time}}</span>
+            <span>{{item.history.time}}</span>
           </div>
           <div class="btn">
             <n-popconfirm
@@ -54,7 +54,7 @@ import {computed} from "vue";
 import {useCompletionStore} from "@/store/completions";
 
 const completionStore = useCompletionStore();
-const histories = computed(()=> completionStore.chats);
+const sessions = computed(()=> completionStore.sessions);
 const selectChatId = computed(()=>completionStore.selectChatId);
 
 //创建新对话

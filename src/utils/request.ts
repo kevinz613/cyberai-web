@@ -6,7 +6,7 @@ const requests = axios.create({
   timeout: 10000,
   // 请求头
   headers: {
-    "Content-Type": "application/json;charset=UTF-8",
+    "Content-Type": "application/json",
   },
 });
 
