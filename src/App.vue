@@ -11,9 +11,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useSettingStore } from '@/store/GlobalSetting.ts';
-import { computed } from 'vue';
-import { darkTheme, lightTheme } from 'naive-ui';
-const settingStore = useSettingStore();
-const theme = computed(() => settingStore.globalSetting.themeModel);
+import { useSettingStore } from '@/store/GlobalSetting.ts'
+import { computed } from 'vue'
+import { darkTheme, lightTheme } from 'naive-ui'
+const settingStore = useSettingStore()
+const theme = computed(() => settingStore.globalSetting.themeModel)
 </script>

@@ -1,22 +1,39 @@
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    es2021: true,
-    node: true,
-  },
-  extends: ['eslint:recommended', 'plugin:vue/vue3-recommended', 'prettier'],
-  overrides: [],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
-  plugins: ['vue', 'prettier'],
-  rules: {
-    'vue/multi-word-component-names': 'off',
-    'vue/no-v-model-argument': 'off',
-    'no-undef': 'off',
-    'prettier/prettier': 'error',
-  },
-  globals: { $ref: 'readonly', $computed: 'readonly', $shallowRef: 'readonly', $customRef: 'readonly', $toRef: 'readonly' },
-};
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:vue/vue3-essential"
+    ],
+    "overrides": [
+        {
+            "env": {
+                "node": true
+            },
+            "files": [
+                ".eslintrc.{js,cjs}"
+            ],
+            "parserOptions": {
+                "sourceType": "script"
+            }
+        }
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "parser": "@typescript-eslint/parser",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "vue"
+    ],
+    "rules": {
+      /*可在此添加校验规则*/
+      'vue/multi-word-component-names': 0,
+      "@typescript-eslint/no-explicit-any": ["off"]
+    }
+}

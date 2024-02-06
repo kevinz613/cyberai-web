@@ -11,13 +11,13 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 
-const router = useRouter();
+const router = useRouter()
 
 const goBackHome = () => {
-  router.push({ name: 'basic' });
-};
+  router.push({ name: 'basic' })
+}
 </script>
 
 <style scoped>

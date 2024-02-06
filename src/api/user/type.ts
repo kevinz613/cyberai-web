@@ -1,29 +1,28 @@
-
 /*登录用户信息*/
-export interface UserInfo{
+export interface UserInfo {
   //用户
-  user: User;
+  user: User
   //角色
-  roles: String[];
+  roles: String[]
   //token
-  token: string;
+  token: string
 }
 
-export interface User{
+export interface User {
   //uid
-  id: number;
+  id: number
   //用户名
-  name: string;
+  name: string
   //账号
-  account: string;
+  account: string
   //手机号
-  phone: string;
+  phone: string
   //邮箱
-  mail: string;
+  mail: string
   //年龄
-  age: number;
+  age: number
   //性别
-  gender: number;
+  gender: number
   //头像
-  avatar: string;
+  avatar: string
 }

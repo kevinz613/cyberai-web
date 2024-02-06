@@ -1,5 +1,5 @@
 //历史消息
-import {AiModel} from "@/config/ChatConfig.ts";
+import { AiModel } from '@/config/ChatConfig.ts'
 
 export interface History {
   //对话id
@@ -32,23 +32,21 @@ export interface ChatConfig {
 //角色枚举
 export enum Role {
   //系统
-  system = "system",
+  system = 'system',
   //用户
-  user = "user",
+  user = 'user',
   //助手
-  assistant = "assistant",
+  assistant = 'assistant',
 }
-
 
 //对话session
 export interface ChatSession {
   //会话id
-  id: string,
+  id: string
   //历史信息
-  history: History,
+  history: History
   //对话消息
-  messages: Message[],
+  messages: Message[]
   //会话配置
-  config: ChatConfig,
+  config: ChatConfig
 }
-

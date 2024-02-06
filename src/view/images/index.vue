@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import Sider from '@/view/images/component/sider.vue';
+import Sider from '@/view/images/component/sider.vue'
 </script>
 
 <style scoped lang="less">

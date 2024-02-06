@@ -1,4 +1,8 @@
-/dist/*
 /node_modules/**
-**/*.svg
+/dist/
+/dist*
 /public/*
+/docs/*
+/src/env.d.ts
+/docs/**/*
+CHANGELOG

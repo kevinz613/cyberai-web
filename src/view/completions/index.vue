@@ -13,8 +13,8 @@
 </template>
 
 <script setup lang="ts">
-import Sider from '@/view/completions/component/sider.vue';
-import Main from '@/view/completions/component/main.vue';
+import Sider from '@/view/completions/component/sider.vue'
+import Main from '@/view/completions/component/main.vue'
 </script>
 
 <style scoped lang="less">

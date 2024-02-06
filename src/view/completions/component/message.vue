@@ -1,6 +1,6 @@
 <template>
-  <div v-for="item in chats">
-    <div v-for="i in item.messages">
+  <div v-for="item in chats" :key="item.id">
+    <div v-for="i in item.messages" :key="i.id">
       <img :src="i.avatar" alt="" width="30px" height="30px" />
       <span>{{ i.role }}</span
       ><br />
@@ -13,11 +13,11 @@
 </template>
 
 <script setup lang="ts">
-import { useCompletionStore } from '@/store/completions';
-import { computed } from 'vue';
+import { useCompletionStore } from '@/store/completions'
+import { computed } from 'vue'
 
-const completionStore = useCompletionStore();
-const selectedId = computed(() => completionStore.selectChatId);
-const chats = computed(() => completionStore.sessions.filter((c) => c.id === selectedId.value));
+const completionStore = useCompletionStore()
+const selectedId = computed(() => completionStore.selectChatId)
+const chats = computed(() => completionStore.sessions.filter((c) => c.id === selectedId.value))
 </script>
 <style scoped></style>

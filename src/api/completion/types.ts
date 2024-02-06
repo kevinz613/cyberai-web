@@ -1,7 +1,7 @@
-import {AiModel} from "@/config/ChatConfig.ts";
-import {Role} from "@/store/completions/completion.ts";
+import { AiModel } from '@/config/ChatConfig.ts'
+import { Role } from '@/store/completions/completion.ts'
 
-export interface RequestMessage{
+export interface RequestMessage {
   //角色
   role: Role
   //内容
@@ -14,5 +14,3 @@ export interface CompletionRequest {
   //消息
   messages: RequestMessage[]
 }
-
-

@@ -88,8 +88,8 @@
 </template>
 
 <script setup lang="ts">
-import { Chat48Regular } from '@vicons/fluent';
-import { ImagesOutline } from '@vicons/ionicons5';
+import { Chat48Regular } from '@vicons/fluent'
+import { ImagesOutline } from '@vicons/ionicons5'
 </script>
 <style scoped lang="less">
 .card {

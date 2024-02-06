@@ -7,8 +7,8 @@ export const dateTrans = (date: Date) => {
     day: '2-digit',
     hour: '2-digit',
     minute: '2-digit',
-    second: '2-digit'
-  });
+    second: '2-digit',
+  })
 }
 
 export const dateTransMinute = (date: Date) => {
@@ -17,6 +17,6 @@ export const dateTransMinute = (date: Date) => {
     month: '2-digit',
     day: '2-digit',
     hour: '2-digit',
-    minute: '2-digit'
-  });
+    minute: '2-digit',
+  })
 }

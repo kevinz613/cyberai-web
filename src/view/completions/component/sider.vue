@@ -8,7 +8,7 @@
         新建对话
       </n-button>
     </div>
-    <n-divider style="margin-top: 10px;margin-bottom: 10px"/>
+    <n-divider style="margin-top: 10px; margin-bottom: 10px" />
     <div class="history-search">
       <n-input placeholder="搜索" round>
         <template #prefix>
@@ -16,15 +16,25 @@
         </template>
       </n-input>
     </div>
-    <n-divider style="margin-top: 10px;margin-bottom: 10px"/>
+    <n-divider style="margin-top: 10px; margin-bottom: 10px" />
     <div class="history-list">
-      <n-list bordered clickable hoverable class="history-list-item" v-for="item in sessions" style="margin-top: 5px" :class="[item.id==selectChatId ? 'selected' : 'default']" @click="switchSelectId(item.id)">
+      <n-list
+        bordered
+        clickable
+        hoverable
+        class="history-list-item"
+        v-for="item in sessions"
+        :key="item.id"
+        style="margin-top: 5px"
+        :class="[item.id == selectChatId ? 'selected' : 'default']"
+        @click="switchSelectId(item.id)"
+      >
         <n-list-item key="{{item.history.id}}}">
           <div class="title">
-            <span>{{item.history.title}}</span>
+            <span>{{ item.history.title }}</span>
           </div>
           <div class="time">
-            <span>{{item.history.time}}</span>
+            <span>{{ item.history.time }}</span>
           </div>
           <div class="btn">
             <n-popconfirm
@@ -43,67 +53,65 @@
         </n-list-item>
       </n-list>
     </div>
-
   </n-layout-sider>
 </template>
 
 <script setup lang="ts">
-import {ChatboxEllipsesOutline, FlashOutline} from '@vicons/ionicons5'
-import {Delete16Regular} from '@vicons/fluent'
-import {computed} from "vue";
-import {useCompletionStore} from "@/store/completions";
+import { ChatboxEllipsesOutline, FlashOutline } from '@vicons/ionicons5'
+import { Delete16Regular } from '@vicons/fluent'
+import { computed } from 'vue'
+import { useCompletionStore } from '@/store/completions'
 
-const completionStore = useCompletionStore();
-const sessions = computed(()=> completionStore.sessions);
-const selectChatId = computed(()=>completionStore.selectChatId);
+const completionStore = useCompletionStore()
+const sessions = computed(() => completionStore.sessions)
+const selectChatId = computed(() => completionStore.selectChatId)
 
 //创建新对话
 const createNewChat = () => {
-  completionStore.addChat();
+  completionStore.addChat()
 }
 
 //删除历史对话
 const handleDeleteChat = (id: string) => {
-  completionStore.delChat(id);
+  completionStore.delChat(id)
 }
 //更新选择对话
 const switchSelectId = (id: string) => {
-  completionStore.switchSelectChatId(id);
+  completionStore.switchSelectChatId(id)
 }
 </script>
 <style scoped>
-.history-btn{
+.history-btn {
   margin: 10px;
 }
-.history-search{
+.history-search {
   margin: 0 10px;
 }
-.history-list{
+.history-list {
   padding-left: 5px;
 }
-.history-list-item{
+.history-list-item {
   width: 95%;
   border-radius: 15px;
   border-color: #efdbff;
 }
-.history-list-item .title{
+.history-list-item .title {
   font-size: 14px;
   color: #515a6e;
 }
-.history-list-item .time{
+.history-list-item .time {
   font-size: 10px;
   color: grey;
 }
-.history-list-item .btn{
+.history-list-item .btn {
   position: absolute;
   right: 2px;
   bottom: 18px;
 }
-.selected{
+.selected {
   background: #efdbff;
 }
-.default{
+.default {
   background: transparent;
 }
-
 </style>

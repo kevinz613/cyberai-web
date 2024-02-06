@@ -1,5 +1,4 @@
-
-export interface User{
+export interface User {
   //用户id
   id: number | null
   // 头像
